@@ -1,0 +1,50 @@
+Command Shell
+
+Print a prompt
+    $
+Handle invalid commands
+    $ invalid_command
+    invalid_command: command not found
+REPL
+    $ invalid_command_1
+    invalid_command_1: command not found
+    $ invalid_command_2
+    invalid_command_2: command not found
+    $ invalid_command_3
+    invalid_command_3: command not found
+    $
+The exit builtin
+    $ invalid_command_1
+    invalid_command_1: command not found
+    $ exit 0
+The echo builtin
+    $ echo hello world
+    hello world
+    $ echo pineapple strawberry
+    pineapple strawberry
+    $
+The type builtin: builtins
+    $ type echo
+    echo is a shell builtin
+    $ type exit
+    exit is a shell builtin
+    $ type invalid_command
+    invalid_command: not found
+The type builtin: executable
+    $ type ls
+    ls is /usr/bin/ls
+    $ type valid_command
+    valid_command is /usr/local/bin/valid_command
+    $ type invalid_command
+    invalid_command: not found
+    $
+Run a program
+    $ notepad
+    $ calc
+The pwd builtin
+    $ pwd
+    C:\Users\DELL\Desktop\Weekend Clasees
+The cd builtin: Absolute paths
+    $ cd C:\Users\DELL\Downloads\Compressed
+    $ pwd
+    C:\Users\DELL\Downloads\Compressed

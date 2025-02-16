@@ -54,4 +54,3 @@ $ exit 0
 - Implement support for additional shell commands.
 - Enhance input parsing to handle extra spaces and variations.
 - Add error handling for edge cases (e.g., empty input).
-
