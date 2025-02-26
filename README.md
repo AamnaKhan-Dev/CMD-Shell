@@ -1,56 +1,62 @@
-# Command Shell Emulator Documentation
+# Shell.py - A Simple Command Line Emulator
 
 ## Overview
-This program is a simple command-line emulator written in Python. It continuously takes user input and processes specific commands while providing error messages for unrecognized inputs.
+`shell.py` is a basic command line emulator that supports a limited set of built-in commands. It mimics a Unix shell environment with basic functionalities like printing the current directory, changing directories, echoing text, and checking command types. The script makes use of the `os` module to interact with the operating system, including handling directory navigation and retrieving environment variables like `PATH`.
 
 ## Features
-- Supports an `echo` command to print user-provided text.
-- Recognizes the `exit 0` command to terminate execution.
-- Handles unrecognized commands by displaying an error message.
+- Execute built-in commands:
+  - `echo [args]`: Prints the provided arguments.
+  - `type [command]`: Checks if a command is a built-in or external executable.
+  - `pwd`: Prints the current working directory.
+  - `cd [directory]`: Changes the current working directory.
+  - `exit 0`: Exits the shell.
+- Supports searching for executables in system `PATH` with `.exe` extensions (for Windows compatibility), leveraging environment variables.
+- Handles unrecognized commands with an error message.
 
-## Code Explanation
-```python
-while True:
-    user_input = input("$ ")  # Prompt user for input
-    if user_input == "exit 0":  # Exit condition
-        exit()
-    elif user_input[0:5] == "echo ":  # Check for echo command
-        print(user_input[5:])  # Print everything after "echo "
-    else:
-        print(f"{user_input}: command not found")  # Handle unrecognized commands
-```
+## Requirements
+- Python 3.x
+- OS: Windows, Linux, or macOS
 
-## Functionality
-1. **User Input Handling**
-   - The program continuously waits for user input using `input("$ ")`.
-   - The loop ensures the program runs indefinitely unless explicitly terminated.
+## Installation
+1. Clone or download this repository.
+2. Ensure Python is installed on your system.
 
-2. **Exit Command (`exit 0`)**
-   - If the user types `exit 0`, the program calls `exit()`, terminating execution.
+## Usage
+1. Open a terminal or command prompt.
+2. Navigate to the directory containing `shell.py`.
+3. Run the script:
+   ```sh
+   python shell.py
+   ```
+4. Use supported commands within the shell prompt (`$`).
+5. To exit, type:
+   ```sh
+   exit 0
+   ```
 
-3. **Echo Command (`echo <message>`)**
-   - If the input starts with `echo `, the program extracts and prints the text following it.
+## Example Commands
+```sh
+$ echo Hello, world!
+Hello, world!
 
-4. **Unknown Command Handling**
-   - If the input does not match the above conditions, the program prints an error message: `<command>: command not found`.
+$ pwd
+/home/user
 
-## Example Usage
-```
-$ echo Hello, World!
-Hello, World!
+$ type pwd
+pwd : is a shell builtin
 
-$ invalid_command
-invalid_command: command not found
+$ cd Documents
+
+$ pwd
+/home/user/Documents
 
 $ exit 0
 ```
 
 ## Limitations
-- Does not handle leading or trailing spaces efficiently.
-- Only recognizes `exit 0` as an exit command (e.g., `exit` alone will not work).
-- Cannot process complex shell-like commands.
+- Only supports predefined built-in commands.
+- Does not execute external commands apart from checking their paths.
+- No support for piping or redirection.
 
-## Possible Improvements
-- Implement support for additional shell commands.
-- Enhance input parsing to handle extra spaces and variations.
-- Add error handling for edge cases (e.g., empty input).
+## License
+This project is open-source and free to use under the MIT License.
