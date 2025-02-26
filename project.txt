@@ -43,7 +43,7 @@ Run a program
     $ calc
 The pwd builtin
     $ pwd
-    C:\Users\DELL\Desktop\Weekend Clasees
+    C:\Users\DELL\Desktop\Weekend Classes
 The cd builtin: Absolute paths
     $ cd C:\Users\DELL\Downloads\Compressed
     $ pwd
